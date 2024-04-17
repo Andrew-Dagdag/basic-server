@@ -14,6 +14,10 @@ router.post('/deleteNote',
   authenticationHandler.authUser,
   noteHandler.deleteNote
 );
+router.post('/updateNote', 
+  authenticationHandler.authUser,
+  noteHandler.updateNote
+);
 router.get('/listNotes', noteHandler.listNotes);
 
 export { router };

@@ -2,5 +2,6 @@ export interface INotes {
   text: string,
   dateCreated: number,
   dateModified?: number,
-  author?: string
+  author?: string,
+  _doc?: any
 }
