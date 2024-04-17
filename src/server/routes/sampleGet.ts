@@ -1,9 +1,5 @@
 import { Request, Response, NextFunction } from "express"
-
-type ResponseData = {
-    statusCode?: number,
-    data?: string
-}
+import { ResponseData } from "../types/responseData"
 
 export const sampleGet = (req: Request, res: Response, next: NextFunction) => {
     let responseData: ResponseData = {}
