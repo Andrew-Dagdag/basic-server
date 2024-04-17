@@ -1,4 +1,6 @@
+import type { INotes } from "./notes"
+
 export type ResponseData = {
   statusCode?: number,
-  data?: string
+  data?: INotes | string
 }

@@ -1,0 +1,7 @@
+import { Notes } from "../../models/notes";
+import { INotes } from "../../types/notes";
+
+export const createNote = async (data: INotes) => {
+  // Assume valid
+  return await Notes.create(data);
+}
