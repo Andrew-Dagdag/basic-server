@@ -1,6 +1,6 @@
 import express, { Express, Request, Response, Router } from 'express';
 import dotenv from 'dotenv';
-import { router } from './server/routes/routes';
+import { router } from './routes/routes';
 import { db } from './config/db.config';
 
 dotenv.config();
@@ -8,8 +8,8 @@ dotenv.config();
 const app: Express = express();
 const port = process.env.PORT;
 
-import { logger } from './server/utils/logger';
-import { response } from './server/utils/response';
+import { logger } from './config/setup/logger';
+import { response } from './config/setup/response';
 
 // Add initial middleware, loggers, authenticators, etc
 app.use(logger);

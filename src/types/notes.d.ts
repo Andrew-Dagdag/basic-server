@@ -1,4 +1,4 @@
-export interface Notes {
+export interface INotes {
   text: string,
   dateCreated: number,
   dateModified: number,

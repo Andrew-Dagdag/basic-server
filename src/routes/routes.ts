@@ -6,5 +6,6 @@ import { sampleGet } from './sampleGet';
 
 // Add custom routes to router
 router.use(sampleGet);
+router.use('/test', sampleGet);
 
 export { router };

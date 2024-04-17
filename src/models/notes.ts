@@ -1,5 +1,5 @@
 import { Schema, model } from "mongoose";
-import { Notes as INotes } from "../types/notes";
+import { INotes } from "../types/notes";
 
 const NotesSchema = new Schema<INotes>({
   text: {
