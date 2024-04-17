@@ -6,9 +6,9 @@ export const response = (req: Request, res: Response) => {
     if (res.locals.responseData?.statusCode) {
         const responseData = res.locals.responseData;
         if (responseData.statusCode !== 200) {
-            res.statusCode = responseData.statusCode;
+            res.status(responseData.statusCode);
         }
-        res.send(responseData.data);
+        res.send(responseData);
     } else {
         res.sendStatus(403);
     }
