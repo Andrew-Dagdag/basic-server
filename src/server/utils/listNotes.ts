@@ -11,8 +11,20 @@ export const listNotes = async (query: ListNotesQuery): Promise<INotes[]> => {
   }
 
   let sort: SortNotes = {}
-  if (typeof query.sortByDateModified !== 'undefined') {
-    sort.sortByDateModified = query.sortByDateModified;
+  if (typeof query.dateModified !== 'undefined') {
+    const dateModified = Number(query.dateModified);
+    if (dateModified !== 1 && dateModified !== -1) {
+      throw new Error('Invalid dateModified value');
+    }
+    sort.dateModified = dateModified;
+  }
+
+  if (typeof query.dateCreated !== 'undefined') {
+    const dateCreated = Number(query.dateCreated);
+    if (dateCreated !== 1 && dateCreated !== -1) {
+      throw new Error('Invalid dateCreated value');
+    }
+    sort.dateCreated = dateCreated;
   }
 
   return await Notes

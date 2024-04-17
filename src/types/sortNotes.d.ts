@@ -1,3 +1,4 @@
 export type SortNotes = {
-  sortByDateModified?: -1 | 1
+  dateModified?: -1 | 1,
+  dateCreated?: -1 | 1
 }
