@@ -4,16 +4,29 @@ import { ResponseData } from "../../types/responseData"
 import * as noteUtils from "../../server/noteUtils"
 
 export const createNote = (req: Request, res: Response, next: NextFunction) => {
-  const dummyData: INotes = {
-    text: 'Some dummy note',
-    dateCreated: Date.now(),
-    author: 'Andorudoru'
+  let response: ResponseData = {}
+  if (req.body.text == null) {
+    response = {
+      statusCode: 400,
+      data: 'No text received'
+    };
+    res.locals.responseData = response;
+    return next()
+  }
+
+  const newNote: INotes = {
+    text: req.body.text,
+    dateCreated: Date.now()
+  }
+
+  if (req.body.author != null) {
+    newNote.author = req.body.author
   }
 
   noteUtils
-    .createNote(dummyData)
+    .createNote(newNote)
     .then((note: INotes) => {
-      const response: ResponseData = {
+      response = {
         statusCode: 200,
         data: note
       }

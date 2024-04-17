@@ -12,6 +12,8 @@ import { logger } from './config/setup/logger';
 import { response } from './config/setup/response';
 
 // Add initial middleware, loggers, authenticators, etc
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 app.use(logger);
 
 // Add business logic routes

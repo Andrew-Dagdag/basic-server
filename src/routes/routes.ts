@@ -6,10 +6,10 @@ import * as noteHandler from './notes/noteHandler';
 import * as authenticationHandler from './authentication/authenticationHandler';
 
 // Add custom routes to router
-router.get('/createNote', 
+router.post('/createNote', 
   authenticationHandler.authUser,
   noteHandler.createNote
-); // TODO: change to post request, add req.body parsing
+);
 router.get('/delete', 
   authenticationHandler.authUser,
   noteHandler.deleteNote
