@@ -10,10 +10,10 @@ router.post('/createNote',
   authenticationHandler.authUser,
   noteHandler.createNote
 );
-router.get('/delete', 
+router.post('/deleteNote', 
   authenticationHandler.authUser,
   noteHandler.deleteNote
-); // TODO: change to delete request, put _id to req.body
+);
 router.get('/listNotes', noteHandler.listNotes);
 
 export { router };

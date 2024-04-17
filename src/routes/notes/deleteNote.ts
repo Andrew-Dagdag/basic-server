@@ -5,7 +5,7 @@ import { ResponseData } from "../../types/responseData"
 import * as noteUtils from "../../server/noteUtils"
 
 export const deleteNote = (req: Request, res: Response, next: NextFunction) => {
-  if (req.query.id == null) {
+  if (req.body.id == null) {
     res.locals.responseData = {
       status: 400,
       data: 'No id found'
@@ -14,7 +14,7 @@ export const deleteNote = (req: Request, res: Response, next: NextFunction) => {
   }
 
   noteUtils
-    .deleteNote(req.query.id as string)
+    .deleteNote(req.body.id as string)
     .then(deletedNote => {
       let response: ResponseData = {}
       if (deletedNote != null) {
@@ -25,7 +25,7 @@ export const deleteNote = (req: Request, res: Response, next: NextFunction) => {
       } else {
         response = {
           statusCode: 404,
-          data: 'Document not found'
+          data: 'Note not found'
         }
       }
 
