@@ -15,7 +15,7 @@ const NotesSchema = new Schema<INotes>({
   },
   author: {
     type: String,
-
+    default: 'Unknown'
   }
 });
 
